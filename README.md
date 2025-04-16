@@ -7,7 +7,7 @@ This repository is based on the open-source project [**fw-fanctrl**](https://git
 ## 🎯 GSoC Qualification Task Description
 
 > **Goal:**  
-> Implement a basic native C library that returns constant/dummy values (e.g., mock temperature, AC status, etc.) and bind it to Python using `ctypes`. Then integrate this binding into the existing `fw-fanctrl` project to simulate a working fan controller using dummy data.
+> A proof of concept - create a basic dummy library that returns a constant value to Python (for any of the functions), and integrate it into fw-fanctrl.
 
 ---
 
@@ -45,6 +45,15 @@ Fan speed set to 21%
 - How to restructure a Python project to use native code instead of subprocesses
 - Real-world integration practices with existing open source code
 - Clean Python/C interface design for hardware simulation
+
+---
+
+## 🙋 Why I Did This
+
+I originally found this task while browsing GSoC ideas, and thought it would be a great way to practice:
+- Writing a C shared library
+- Binding it to Python using `ctypes`
+- Working with real project architecture and replacing subprocess logic
 
 ---
 
