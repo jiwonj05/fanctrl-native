@@ -1,30 +1,30 @@
-# 🛠️ Native Fan Control Integration (GSoC Qualification Task)
+# Native Fan Control Integration (GSoC Qualification Task)
 
 This repository is based on the open-source project [**fw-fanctrl**](https://github.com/TamtamHero/fw-fanctrl) and was created as part of a **Google Summer of Code (GSoC)** qualification task.
 
 ---
 
-## 🎯 GSoC Qualification Task Description
+## GSoC Qualification Task Description
 
 > **Goal:**  
 > A proof of concept - create a basic dummy library that returns a constant value to Python (for any of the functions), and integrate it into fw-fanctrl.
 
 ---
 
-## ✅ What I Did
+## What I Did
 
-- 🔧 Created a C shared library (`libdemo_ectool.so`) that returns constant mock data:
+- Created a C shared library (`libdemo_ectool.so`) that returns constant mock data:
   - Fake temperature readings
   - Static fan status
   - Power state (AC)
-- 🧠 Defined a `sensor` struct in C with fields like `id`, `label`, `temperature`, and `is_battery`
-- 🔗 Created Python bindings for the library using `ctypes` in `demo_binding.py`
-- 🧪 Replaced the original `ectool` subprocess-based logic in `EctoolHardwareController` with calls to my native library
-- 🧹 Updated the project structure, Makefile, and environment setup for clean integration
+-  Defined a `sensor` struct in C with fields like `id`, `label`, `temperature`, and `is_battery`
+- Created Python bindings for the library using `ctypes` in `demo_binding.py`
+- Replaced the original `ectool` subprocess-based logic in `EctoolHardwareController` with calls to my native library
+- Updated the project structure, Makefile, and environment setup for clean integration
 
 ---
 
-## 🔧 How to Build & Run
+## How to Build & Run
 
 ```bash
 # Compile the C library and move it into place
@@ -41,28 +41,19 @@ Fan speed set to 21%
 ```
 ---
 
-### 📸 Screenshot
+## Screenshot
 
 Below is how it looks when running `make run`, which launches `fw-fanctrl run` with the native C library integration:
 
 ![Demo Screenshot](assets/demo.png)
 
-## 🙋 What I Learned
+## What I Learned
 
 - How to write and compile C shared libraries (`.so`)
 - Using `ctypes` to bind native C functions into Python
 - How to restructure a Python project to use native code instead of subprocesses
 - Real-world integration practices with existing open source code
 - Clean Python/C interface design for hardware simulation
-
----
-
-## 🙋 Why I Did This
-
-I originally found this task while browsing GSoC ideas, and thought it would be a great way to practice:
-- Writing a C shared library
-- Binding it to Python using `ctypes`
-- Working with real project architecture and replacing subprocess logic
 
 ---
 
