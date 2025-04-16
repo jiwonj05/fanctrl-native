@@ -38,6 +38,8 @@ Sensor 1: ID=1, Label=GPU, Temp=60.3°C, Battery=False
 Sensor 2: ID=2, Label=Battery, Temp=42.3°C, Battery=True
 Fan speed set to 21%
 
+```
+
 ## 🙋 What I Learned
 
 - How to write and compile C shared libraries (`.so`)
