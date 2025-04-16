@@ -39,6 +39,11 @@ Sensor 2: ID=2, Label=Battery, Temp=42.3°C, Battery=True
 Fan speed set to 21%
 
 ```
+### 📸 Screenshot
+
+Below is how it looks when running `fw-fanctrl run` with the native C library integrated:
+
+![Demo Screenshot](assets/demo.png)
 
 ## 🙋 What I Learned
 
