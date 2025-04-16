@@ -1,31 +1,61 @@
-# 🌬️ Native Fan Controller with C & Python Binding
+# 🛠️ Native Fan Control Integration (GSoC Qualification Task)
 
-This project is a native hardware-level fan controller built from scratch using a shared C library and a Python interface via `ctypes`.
-
-It emulates a hardware environment with temperature sensors and demonstrates how to dynamically control fan speed based on temperature readings. This project is inspired by embedded systems practices and designed to be modular, efficient, and easy to integrate.
+This repository is based on the open-source project [**fw-fanctrl**](https://github.com/TamtamHero/fw-fanctrl) and was created as part of a **Google Summer of Code (GSoC)** qualification task.
 
 ---
 
-## 🧠 What I Built
+## 🎯 GSoC Qualification Task Description
 
-- A native C shared library (`libdemo_ectool.so`) that exposes mock sensor data and fan control functions
-- A Python binding layer (`ctypes`) that communicates directly with the C library
-- A high-level Python fan controller that implements strategy-based fan speed control
-- A clean project structure with `Makefile`, modular source folders, and runtime scripts
+> **Goal:**  
+> Implement a basic native C library that returns constant/dummy values (e.g., mock temperature, AC status, etc.) and bind it to Python using `ctypes`. Then integrate this binding into the existing `fw-fanctrl` project to simulate a working fan controller using dummy data.
 
 ---
 
-## 🛠️ Features
+## ✅ What I Did
 
-- Read sensor data from native C code (ID, label, temperature, battery status)
-- Determine highest temperature (with optional filtering for battery sensors)
-- Dynamically set fan speed through a C function
-- Pause/resume fan control behavior
-- Detect if device is on AC power
-- Designed to scale: easily add new sensors, strategies, or output logic
+- 🔧 Created a C shared library (`libdemo_ectool.so`) that returns constant mock data:
+  - Fake temperature readings
+  - Static fan status
+  - Power state (AC)
+- 🧠 Defined a `sensor` struct in C with fields like `id`, `label`, `temperature`, and `is_battery`
+- 🔗 Created Python bindings for the library using `ctypes` in `demo_binding.py`
+- 🧪 Replaced the original `ectool` subprocess-based logic in `EctoolHardwareController` with calls to my native library
+- 🧹 Updated the project structure, Makefile, and environment setup for clean integration
 
 ---
 
-## 🗂️ Project Structure
+## 🔧 How to Build & Run
 
+```bash
+# Compile the C library and move it into place
+make install
+
+# Set up PYTHONPATH and run the project
+make run
+
+Sensor 0: ID=0, Label=CPU, Temp=40.2°C, Battery=False
+Sensor 1: ID=1, Label=GPU, Temp=60.3°C, Battery=False
+Sensor 2: ID=2, Label=Battery, Temp=42.3°C, Battery=True
+Fan speed set to 21%
+
+## 🙋 What I Learned
+
+- How to write and compile C shared libraries (`.so`)
+- Using `ctypes` to bind native C functions into Python
+- How to restructure a Python project to use native code instead of subprocesses
+- Real-world integration practices with existing open source code
+- Clean Python/C interface design for hardware simulation
+
+---
+
+## 📘 Credits
+
+This project is **based on**:  
+🔗 [TamtamHero/fw-fanctrl](https://github.com/TamtamHero/fw-fanctrl)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE), inherited from the original [fw-fanctrl](https://github.com/TamtamHero/fw-fanctrl) project.
 
