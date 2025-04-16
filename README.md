@@ -41,7 +41,7 @@ Fan speed set to 21%
 ```
 ### 📸 Screenshot
 
-Below is how it looks when running `fw-fanctrl run` with the native C library integrated:
+Below is how it looks when running `make run`, which launches `fw-fanctrl run` with the native C library integration:
 
 ![Demo Screenshot](assets/demo.png)
 
